@@ -1,14 +1,22 @@
-# 模板
-**/\.idea
+# --- 模板 ---
+# **/ 表示所有文件夹
+# **/__pycache__ 表示忽略所有文件夹下的 subfolder 文件夹
+# \. 表示将点符号转义
+# **/\.idea 表示忽略所有文件夹下的 .idea 文件夹
+# * 表示所有文件
+# *.pyc 表示忽略所有 .pyc 后缀的文件
 **/__pycache__
+**/\.idea
 **/.ipynb_checkpoints
 *.pyc
 *.env
 
-# 文件夹
+# 忽略文件夹
 test
-Data_Structure/*
 
-# 不忽略的文件
+# 不忽略文件夹
 !\.vscode
+
+# 忽略文件夹但不忽略指定的子文件夹
+Data_Structure/*
 !Data_Structure/lib
