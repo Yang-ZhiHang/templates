@@ -1,0 +1,14 @@
+# 模板
+**/\.idea
+**/__pycache__
+**/.ipynb_checkpoints
+*.pyc
+*.env
+
+# 文件夹
+test
+Data_Structure/*
+
+# 不忽略的文件
+!\.vscode
+!Data_Structure/lib
