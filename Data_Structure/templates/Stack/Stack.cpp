@@ -47,8 +47,8 @@ void Pop(Stack* S, char& e) {
 }
 
 // 查看栈顶元素
-char Peek(Stack* S) {
-    return S->item[S->top];
+void Peek(Stack* S, char& e) {
+    e = S->item[S->top];
 }
 
 // 查看所有元素

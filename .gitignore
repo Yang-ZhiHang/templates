@@ -19,4 +19,4 @@ test
 
 # 忽略文件夹但不忽略指定的子文件夹
 Data_Structure/*
-!Data_Structure/lib
+!Data_Structure/templates
