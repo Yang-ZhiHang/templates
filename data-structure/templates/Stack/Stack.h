@@ -33,21 +33,21 @@ bool isEmpty(Stack* S);
  * @param S 栈
  * @param data 要进栈的元素
  */
-void Push(Stack* S, char data);
+bool Push(Stack* S, char data);
 
 /**
  * @brief 出栈
  * @param S 栈
  * @param e 要出栈的元素
  */
-void Pop(Stack* S, char& e);
+bool Pop(Stack* S, char& e);
 
 /**
  * @brief 查看栈顶元素
  * @param S 栈
  * @param e 用于接收栈顶元素
  */
-void Peek(Stack* S, char& e);
+bool Peek(Stack* S, char& e);
 
 /**
  * @brief 查看所有元素

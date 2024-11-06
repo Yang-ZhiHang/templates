@@ -30,25 +30,34 @@ bool isEmpty(Stack* S) {
 }
 
 // 进栈
-void Push(Stack* S, char data) {
-    if (isFull(S)) {
-        return;
+bool Push(Stack* S, char data) {
+    int flag = 0;
+    if (!isFull(S)) {
+        S->item[++S->top] = data;
+        flag = 1;
     }
-    S->item[++S->top] = data;
+    return flag;
 }
 
 // 出栈
-void Pop(Stack* S, char& e) {
-    if (isEmpty(S)) {
-        return;
+bool Pop(Stack* S, char& e) {
+    int flag = 0;
+    if (!isEmpty(S)) {
+        e = S->item[S->top];
+        S->top--;
+        flag = 1;
     }
-    e = S->item[S->top];
-    S->top--;
+    return flag;
 }
 
 // 查看栈顶元素
-void Peek(Stack* S, char& e) {
-    e = S->item[S->top];
+bool Peek(Stack* S, char& e) {
+    int flag = 0;
+    if (!isEmpty(S)) {
+        e = S->item[S->top];
+        flag = 1;
+    }
+    return flag;
 }
 
 // 查看所有元素

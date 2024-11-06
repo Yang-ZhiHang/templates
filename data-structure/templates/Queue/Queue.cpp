@@ -53,3 +53,16 @@ void Remove(Queue* Q, char& e) {
         Q->front -= Q->MAX_SIZE;
     }
 }
+
+// 清空队列
+void clear(Queue* Q, bool print) {
+    if (print) {
+        while (!isEmpty(Q)) {
+            char e;
+            Remove(Q, e);
+            printf("%c\n", e);
+        }
+    }
+    delete[] Q->item;
+    delete Q;
+}

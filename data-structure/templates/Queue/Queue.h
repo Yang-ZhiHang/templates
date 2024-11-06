@@ -43,4 +43,10 @@ void Add(Queue* Q, char data);
  */
 void Remove(Queue* Q, char& e);
 
+/**
+ * @brief 清空队列
+ * @param Q 队列
+ * @param print 是否打印
+ */
+void clear(Queue* Q, bool print);
 #endif
