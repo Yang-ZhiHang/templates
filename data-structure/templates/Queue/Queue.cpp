@@ -1,68 +1,55 @@
 #include "Queue.h"
 
-
-// 队列初始化
+// 初始化队列
 Queue* initQueue(int size) {
     Queue* Q = new Queue;
-
-    Q->MAX_SIZE = size;
+    if (Q == nullptr) {
+        cout << "内存分配失败" << endl;
+        return nullptr;
+    }
+    Q->item = new int[size + 1];
+    if (Q->item == nullptr) {
+        cout << "内存分配失败" << endl;
+        return nullptr;
+    }
     Q->front = 0;
     Q->rear = 0;
-    Q->item = new char[Q->MAX_SIZE + 1];
-
+    Q->MAX_SIZE = size + 1;
     return Q;
 }
 
-// 队满
-bool isFull(Queue* Q) {
-    int flag = 0;
-    if ((Q->rear + 1) % Q->MAX_SIZE == Q->front) {
-        flag = 1;
-    }
-    return flag;
-}
-
-// 队空
-bool isEmpty(Queue* Q) {
-    int flag = 0;
-    if (Q->rear == Q->front) {
-        flag = 1;
-    }
-    return flag;
-}
-
-// 进队
-void Add(Queue* Q, char data) {
+// 入队
+bool enQueue(Queue* Q, int data) {
     if (isFull(Q)) {
-        return;
+        return 0;
     }
-    Q->item[Q->rear++] = data;
-    //
-    if (Q->rear + 1 == Q->MAX_SIZE) {
-        Q->rear -= Q->MAX_SIZE;
-    }
+    Q->item[Q->rear] = data;
+    Q->rear = (Q->rear + 1) % Q->MAX_SIZE;
+    return 1;
 }
 
 // 出队
-void Remove(Queue* Q, char& e) {
+bool deQueue(Queue* Q, int& e) {
     if (isEmpty(Q)) {
-        return;
+        return 0;
     }
-    e = Q->item[Q->front++];
-    if (Q->front + 1 == Q->MAX_SIZE) {
-        Q->front -= Q->MAX_SIZE;
-    }
+    e = Q->item[Q->front];
+    Q->front = (Q->front + 1) % Q->MAX_SIZE;
+    return 1;
 }
 
-// 清空队列
-void clear(Queue* Q, bool print) {
-    if (print) {
-        while (!isEmpty(Q)) {
-            char e;
-            Remove(Q, e);
-            printf("%c\n", e);
-        }
-    }
-    delete[] Q->item;
-    delete Q;
+// 判断队满
+bool isFull(Queue* Q) {
+    return (Q->rear + 1) % Q->MAX_SIZE == Q->front;
+}
+
+// 判断队空
+bool isEmpty(Queue* Q) {
+    return Q->rear == Q->front;
+}
+
+// 队列长度
+bool QueueLength(Queue* Q, int& e) {
+    e = (Q->rear - Q->front + Q->MAX_SIZE) % Q->MAX_SIZE;
+    return 1;
 }

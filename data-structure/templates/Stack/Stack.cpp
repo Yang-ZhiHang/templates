@@ -3,11 +3,19 @@
 // 初始化栈
 Stack* initStack(int size) {
     Stack* S = new Stack;
+    if (S == nullptr) {
+        cout << "内存分配失败" << endl;
+        return nullptr;
+    }
+
+    S->item = new char[size];
+    if (S->item == nullptr) {
+        cout << "内存分配失败" << endl;
+        return nullptr;
+    }
 
     S->MAX_SIZE = size;
     S->top = -1;
-    S->item = new char[S->MAX_SIZE];
-
     return S;
 }
 

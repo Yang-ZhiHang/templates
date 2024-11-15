@@ -10,50 +10,25 @@ typedef struct {
     int MAX_SIZE;  // 元素最大存储数量
 } Stack;
 
-/**
- * @brief 初始化栈
- * @param size 栈能存储的元素最大个数
- */
+// 初始化栈
 Stack* initStack(int size);
 
-/**
- * @brief 栈满
- * @param S 栈
- */
+// 栈满
 bool isFull(Stack* S);
 
-/**
- * @brief 栈空
- * @param S 栈
- */
+// 栈空
 bool isEmpty(Stack* S);
 
-/**
- * @brief 进栈
- * @param S 栈
- * @param data 要进栈的元素
- */
+// 进栈
 bool Push(Stack* S, char data);
 
-/**
- * @brief 出栈
- * @param S 栈
- * @param e 要出栈的元素
- */
+// 出栈
 bool Pop(Stack* S, char& e);
 
-/**
- * @brief 查看栈顶元素
- * @param S 栈
- * @param e 用于接收栈顶元素
- */
+// 查看栈顶元素
 bool Peek(Stack* S, char& e);
 
-/**
- * @brief 查看所有元素
- * @param S 栈
- * @param reverse 是否逆序输出，默认为 false
- */
+// 查看所有栈元素
 void PrintStack(Stack* S, bool reverse);
 
 #endif

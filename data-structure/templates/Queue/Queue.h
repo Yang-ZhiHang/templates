@@ -5,48 +5,28 @@
 using namespace std;
 
 typedef struct {
-    char* item;    // 队列的存储数组
-    int front;     // 队头指针
-    int rear;      // 队尾指针
-    int MAX_SIZE;  // 栈能存储的元素最大个数
+    int* item;     // 存储数据
+    int front;     // 头指针
+    int rear;      // 尾指针
+    int MAX_SIZE;  // 最大容量
 } Queue;
 
-/**
- * @brief 队列初始化
- * @param size 队列能存储的元素最大个数
- */
+// 初始化队列
 Queue* initQueue(int size);
 
-/**
- * @brief 队空
- * @param Q 队列
- */
-bool isEmpty(Queue* Q);
+// 入队
+bool enQueue(Queue* Q, int data);
 
-/**
- * @brief 队满
- * @param Q 队列
- */
+// 出队
+bool deQueue(Queue* Q, int& e);
+
+// 判断队空
 bool isFull(Queue* Q);
 
-/**
- * @brief 入队
- * @param Q 队列
- * @param data 要入队的元素
- */
-void Add(Queue* Q, char data);
+// 判断队满
+bool isEmpty(Queue* Q);
 
-/**
- * @brief 出队
- * @param Q 队列
- * @param e 用于接收出队的元素
- */
-void Remove(Queue* Q, char& e);
+// 队列长度
+bool QueueLength(Queue* Q, int& e);
 
-/**
- * @brief 清空队列
- * @param Q 队列
- * @param print 是否打印
- */
-void clear(Queue* Q, bool print);
 #endif
